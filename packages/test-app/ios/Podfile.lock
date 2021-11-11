@@ -282,7 +282,10 @@ PODS:
     - React-jsi
   - ReactTestApp-MSAL (0.3.0):
     - MSAL
+    - RNXAuth
   - ReactTestApp-Resources (1.0.0-dev)
+  - RNXAuth (0.0.1):
+    - React-Core
   - SwiftLint (0.45.1)
   - Yoga (1.14.0)
 
@@ -322,6 +325,7 @@ DEPENDENCIES:
   - ReactTestApp-DevSupport (from `../../../node_modules/react-native-test-app`)
   - ReactTestApp-MSAL (from `../../react-native-test-app-msal`)
   - ReactTestApp-Resources (from `..`)
+  - RNXAuth (from `../../react-native-auth`)
   - SwiftLint
   - Yoga (from `../../../node_modules/react-native/ReactCommon/yoga`)
 
@@ -396,6 +400,8 @@ EXTERNAL SOURCES:
     :path: "../../react-native-test-app-msal"
   ReactTestApp-Resources:
     :path: ".."
+  RNXAuth:
+    :path: "../../react-native-auth"
   Yoga:
     :path: "../../../node_modules/react-native/ReactCommon/yoga"
 
@@ -432,8 +438,9 @@ SPEC CHECKSUMS:
   React-runtimeexecutor: dec32ee6f2e2a26e13e58152271535fadff5455a
   ReactCommon: 57b69f6383eafcbd7da625bfa6003810332313c4
   ReactTestApp-DevSupport: 21707a80ebb173cdd15a2fa5b1d924fa4113b383
-  ReactTestApp-MSAL: 049fa048692e225b95b61bc8af9c20b236d8e11f
+  ReactTestApp-MSAL: 8c59d1d08f77e3ee9d92a556596a91730c6af880
   ReactTestApp-Resources: 74a1cf509f4e7962b16361ea4e73cba3648fff5d
+  RNXAuth: b4882bb701c091c4e83226228d77fc6861dde024
   SwiftLint: 06ac37e4d38c7068e0935bb30cda95f093bec761
   Yoga: e7dc4e71caba6472ff48ad7d234389b91dadc280
 

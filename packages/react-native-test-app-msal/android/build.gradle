@@ -56,8 +56,8 @@ buildscript {
 }
 
 plugins {
-    id "com.android.library"
-    id "kotlin-android"
+    id 'com.android.library'
+    id 'kotlin-android'
 }
 
 repositories {
@@ -73,6 +73,8 @@ repositories {
         url 'https://pkgs.dev.azure.com/MicrosoftDeviceSDK/DuoSDK-Public/_packaging/Duo-SDK-Feed/maven/v1'
     }
 }
+
+def rnxAuth = findNodeModulesPath('@rnx-kit/react-native-auth')
 
 android {
     def manifest = new JsonSlurper().parseText(findFile('app.json').text)
@@ -98,6 +100,9 @@ android {
         manifestPlaceholders = [
             msalRedirectUriPath: "/$signatureHash"
         ]
+    }
+    lintOptions {
+        abortOnError false
     }
     sourceSets {
         def clientId = ensureProperty(config, "clientId")
@@ -145,6 +150,12 @@ android {
         preBuild.dependsOn(copyMsalConfig)
 
         main.res.srcDirs += generatedResDir
+
+        if (rnxAuth == null) {
+            main.java.srcDirs += 'src/nornx/java'
+        } else {
+            main.java.srcDirs += 'src/rnx/java'
+        }
     }
 }
 
@@ -159,4 +170,8 @@ dependencies {
 
     //noinspection GradleDynamicVersion
     implementation 'com.facebook.react:react-native:+'
+
+    if (rnxAuth != null) {
+        implementation project(path: ':rnx-kit_react-native-auth')
+    }
 }
